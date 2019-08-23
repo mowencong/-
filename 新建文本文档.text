@@ -1,0 +1,77 @@
+vue中小技巧
+(1)自定义指令directives
+关于自定义指令文档其实介绍的比较详细了，而且还举了一个非常详细的例子：
+自定义指令其实就是Vue为我们提供直接操作dom的一些列方法，
+虽然大部分开发时间都会面向数据，但说不准什么时候确实需要操作dom本身。
+就我而言，自定义指令最大的用处就是可以引用一些第三方的代码插入到Vue项目中，比如有一个操作dom的函数：
+
+function changeColor(dom){
+	dom.style.backgroundColor = "red";
+}
+
+Vue.directives('color',{
+	bind:function(el){
+		changeColor(el)
+	}
+})
+
+这样,如果需要这个dom改变颜色的话,只需眼这样即可:
+<div v-color>改变颜色</div>
+当日常开发遇到跟dom有关的问题却一筹莫展时,可以想想自定义指令是否有功能可以解决
+
+vue骚操作之this.$options.data()
+在vue单文件组件里有时需要重置data中的数据，比如表单填写一半，用户想重新填写。
+<script>
+	export default{
+		data(){
+			return {
+				//表单
+				form:{
+					input:''
+				}
+			}
+		},
+		mothods:{
+			reset(){
+				this.form = this.$options.data().form;
+			}
+		}
+	}
+</script>
+也可以通过给组件$data对象赋值来重置整个$data
+this.$data = this.$options.data()
+vue组件可以通过 this.$options 对象获取你编写的任何方法，比如 created( ) 生命周期函数
+
+接收后台返回来的数据需要对0,1转换成中文的,我一般用map对数据重构,比如:
+this.list.map((item)=>{
+	if(item.a == 0){
+		item.a = "不通过"
+	}else if(item.a == 1){
+		item.a = "通过"
+	}
+	return item
+})
+字符串转数组
+var string = '11,222,333,444'
+var str = string.split('');
+数组转字符串
+var str = [111,222,333]
+var string = str.join('')
+字符串转对象
+const str = '{"id":0,"name":"张三","age":12}'
+const strToObj = JSON.parse(str)
+对象转字符串
+const obj = {
+     id: 0,
+     name: '张三',
+     age: 12
+}
+const objToStr = JSON.stringify(obj)
+
+对象转成数组,通过循环push
+let obj = {'未完成':5, '已完成':8, '待确认':4, '已取消':6};
+var arr = []
+for (let i in obj) {
+    arr.push(obj[i]); //属性
+    //arr.push(obj[i]); //值
+}
