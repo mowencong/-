@@ -1,0 +1,74 @@
+配置文件
+<VirtualHost _default_:80>
+    DocumentRoot "D:\phpstudy\PHPTutorial\WWW\hunxuyunshang"
+  <Directory "D:\phpstudy\PHPTutorial\WWW\hunxuyunshang">
+    Options -Indexes +FollowSymLinks +ExecCGI
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+    Require all granted
+  </Directory>
+</VirtualHost>
+
+
+
+<VirtualHost *:80>
+    DocumentRoot "D:\phpstudy\PHPTutorial\WWW\g2000"
+    ServerName g2000-scrm.max-digital.cn
+    ServerAlias g2000-scrm.max-digital.cn
+  <Directory "D:\phpstudy\PHPTutorial\WWW\g2000">
+      Options FollowSymLinks ExecCGI
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+     Require all granted
+  </Directory>
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    DocumentRoot "D:\phpstudy\PHPTutorial\WWW\shuzhiyun-website\public"
+    ServerName www.szy.com
+   ServerAlias www.shuzhiyun.com
+  <Directory "D:\phpstudy\PHPTutorial\WWW\shuzhiyun-website\public">
+      Options FollowSymLinks ExecCGI
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+     Require all granted
+  </Directory>
+</VirtualHost>
+
+host
+
+
+
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+#127.0.0.1 localhost
+127.0.0.1 www.zy-test.com www.10086gou.com www.hx-test.com
+127.0.0.1 g2000.mediaclickcloud.com www.szy.com www.shuzhiyun.com
+127.0.0.1 g2000.mediaclickcloud.com www.szy.com www.shuzhiyun.com
+118.178.131.231  higirl.hxing.com
+119.23.248.58    test.midea.com
+47.107.82.135    localhost
