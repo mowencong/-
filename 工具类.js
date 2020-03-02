@@ -239,3 +239,25 @@ var formatTime = (date, ymd, symbol, chinese) => {
     number_format:number_format,
     formatEnglishTime:formatEnglishTime
   }
+  
+  
+  
+  
+  //vantui 时间格式化方法
+  getDate(value) {
+      console.log(123, value);
+      var date = value;
+      var m = date.getMonth() + 1;
+      var d = date.getDate();
+      var y = date.getFullYear();
+      console.log(234, m, d, y);
+      if (m >= 1 && m <= 9) {
+        m = "0" + m;
+      }
+      if (d >= 0 && d <= 9) {
+        d = "0" + d;
+      }
+      var allDate = y + "-" + m + "-" + d;
+      console.log(345, allDate);
+
+    }
